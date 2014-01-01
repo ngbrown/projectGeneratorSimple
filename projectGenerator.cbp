@@ -170,8 +170,6 @@
 		</Unit>
 		<Unit filename="src/utils/Utils.cpp" />
 		<Unit filename="src/utils/Utils.h" />
-		<Unit filename="src/utils/ofAppNoWindow.cpp" />
-		<Unit filename="src/utils/ofAppNoWindow.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
