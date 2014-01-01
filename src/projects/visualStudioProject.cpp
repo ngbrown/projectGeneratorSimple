@@ -81,7 +81,7 @@ bool visualStudioProject::saveProjectFile(){
 void visualStudioProject::appendFilter(string folderName){
 
 
-    fixSlashOrder(folderName);
+    toDosSlashOrder(folderName);
 
 	string uuid = generateUUID(folderName);
 
@@ -112,8 +112,8 @@ void visualStudioProject::appendFilter(string folderName){
 
 void visualStudioProject::addSrc(string srcFile, string folder){
 
-    fixSlashOrder(folder);
-    fixSlashOrder(srcFile);
+    toDosSlashOrder(folder);
+    toDosSlashOrder(srcFile);
 
 	vector < string > folderSubNames = ofSplitString(folder, "\\");
 	string folderName = "";
@@ -148,7 +148,7 @@ void visualStudioProject::addSrc(string srcFile, string folder){
 void visualStudioProject::addInclude(string includeName){
 
 
-    fixSlashOrder(includeName);
+    toDosSlashOrder(includeName);
 
     pugi::xpath_node_set source = doc.select_nodes("//ClCompile/AdditionalIncludeDirectories");
     for (pugi::xpath_node_set::const_iterator it = source.begin(); it != source.end(); ++it){
@@ -174,7 +174,7 @@ void visualStudioProject::addInclude(string includeName){
 void visualStudioProject::addLibrary(string libraryName, LibType libType){
 
 
-    fixSlashOrder(libraryName);
+    toDosSlashOrder(libraryName);
 
     // ok first, split path and library name.
     size_t found = libraryName.find_last_of("\\");
